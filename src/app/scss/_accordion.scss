@@ -1,0 +1,52 @@
+$colors: (
+  secondary: $color-blue,
+  tertiary: $color-green,
+  quaternary: $color-yellow,
+);
+
+@each $name, $color in $colors {
+  .mat-accordion-#{$name} {
+    display: block;
+    max-width: 500px;
+  }
+
+  .mat-accordion-#{$name}-item {
+    display: block;
+    border: solid 1px lighten($color, 20%);
+  }
+
+  .mat-accordion-#{$name}-item + .mat-accordion-#{$name}-item {
+    border-top: none;
+  }
+
+  .mat-accordion-#{$name}-item-header {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+  }
+
+  .mat-accordion-#{$name}-item-description {
+    font-size: 0.85em;
+    color: $color;
+  }
+
+  .mat-accordion-#{$name}-item-header,
+  .mat-accordion-#{$name}-item-body {
+    padding: 16px;
+  }
+
+  .mat-accordion-#{$name}-item-header:hover {
+    cursor: pointer;
+    background-color: lighten($color, 20%);
+  }
+
+  .mat-accordion-#{$name}-item:first-child {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+  .mat-accordion-#{$name}-item:last-child {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+}

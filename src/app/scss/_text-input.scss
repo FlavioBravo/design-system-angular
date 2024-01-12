@@ -1,0 +1,34 @@
+$colors: (
+  secondary: $color-blue,
+  tertiary: $color-green,
+  quaternary: $color-yellow,
+);
+
+@each $name, $color in $colors {
+  .mat-text-input-#{$name} {
+    .mdc-text-field--filled:not(.mdc-text-field--disabled)
+      .mdc-text-field__input {
+      font-size: $font-size-lg;
+      line-height: $line-height-lg;
+    }
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+      background-color: lighten($color, 20%) !important;
+    }
+
+    .mdc-text-field--filled:not(.mdc-text-field--disabled)
+      .mdc-line-ripple::after {
+      border-bottom-color: $color !important;
+    }
+
+    .mdc-text-field--filled:not(
+        .mdc-text-field--disabled
+      ).mdc-text-field--focused
+      .mdc-floating-label,
+    .mdc-text-field--filled:not(
+        .mdc-text-field--disabled
+      ).mdc-text-field--focused
+      .mdc-floating-label--float-above {
+      color: $color !important;
+    }
+  }
+}
